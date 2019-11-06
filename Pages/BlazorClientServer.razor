@@ -1,0 +1,68 @@
+@page "/blazorclientserver"
+
+<h1 style="margin-left:35%"> Blazor Client vs Server </h1>
+<hr>
+<br>
+
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <img src="assets/blazorWebAssembly.png" style="width:75%">
+        </div>
+        <hr>
+        <div class="row">
+            <h4> Pros </h4>
+            <ul>
+                <li> True SPA, full interactivity </li>
+                <li> Utilize client resources </li>
+                <li> Supports offline, static sites, PWA scenarios </li>
+            </ul>
+        </div>
+            <hr>
+        <div class="row">
+            <h4> Cons </h4>
+            <ul>
+                <li> Larger download size </li>
+                <li> Requires WebAssembly </li>
+                <li> Still in preview </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <img src="assets/blazorserver.png" style="width:100%">
+        </div>
+        <hr>
+        <div class="row">
+            <h4> Pros </h4>
+            <ul>
+                <li> Smaller download size, faster load time </li>
+                <li> Running on fully featured .NET runtime </li>
+                <li> Code never leaves the server </li>
+                <li> Simplified architecture </li>
+            </ul>
+        </div>
+            <hr>
+        <div class="row">
+            <h4> Cons </h4>
+            <ul>
+                <li> Latency </li>
+                <li> No offline support </li>
+                <li> Consumes more server resources </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<br>
+
+
+<div class="row">
+        <div class="col-sm">
+            <a href="/webassembly" class="btn btn-link"> &lt;&lt; Previous </a>
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+            <a href="/serverlesswebsites" class="btn btn-link"> Next &gt;&gt; </a>
+        </div>
+</div>

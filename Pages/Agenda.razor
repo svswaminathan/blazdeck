@@ -1,0 +1,48 @@
+@page "/agenda"
+@using System.Collections.Generic
+
+
+<h1 style="margin-left:35%"> Agenda </h1>
+<hr>
+<br>
+<br>
+
+<ul class="list-group">
+@foreach(var agendaItem in agendaItems)
+{
+    <li class="list-group-item"> @agendaItem </li>
+}
+</ul>
+
+<div class="row">
+        <div class="col-sm">
+            <a href="/about" class="btn btn-link"> &lt;&lt; Previous </a>
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+            <a href="/whatisblazor" class="btn btn-link"> Next &gt;&gt; </a>
+        </div>
+</div>
+@code {
+    private List<string> agendaItems;
+
+    protected override async Task OnInitializedAsync()
+    {
+            agendaItems = new List<string>
+        {
+            "What is Blazor ?",
+            "What is Web Assembly ?",
+            "How Blazor WebAssembly Works ?",
+            "Blazor on Client vs Server",
+            "What are serverless websites ?",
+            "Where does Blazor fit in ?",
+            "Running serverless code with Azure Functions",
+            "Demos"
+        };
+        
+    }
+    
+}
+
+
