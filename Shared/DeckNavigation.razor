@@ -1,0 +1,58 @@
+@inject NavigationManager NavigationManager
+
+@code{
+    [Parameter]
+    public string PreviousSlide {get; set;}
+    [Parameter]
+    public string NextSlide {get;set;}
+
+    protected override void OnInitialized()
+    {
+        InteropKeyPress.KeyUp += OnKeyUp;
+    } 
+       
+    public void NavigateToNext()
+    {
+        Console.WriteLine("Navigating to : "+ NextSlide);
+         string destination = NextSlide;
+        PreviousSlide = null;
+        NextSlide = null;
+        NavigationManager.NavigateTo(destination);
+    }
+    
+    public void NavigateToPrevious()
+    {
+        Console.WriteLine("Navigating to : "+ PreviousSlide);
+        string destination = PreviousSlide;
+        PreviousSlide = null;
+        NextSlide = null;
+        NavigationManager.NavigateTo(destination);       
+    }
+
+    public void OnKeyDown(object sender, ConsoleKey key)
+    {
+        if(key == ConsoleKey.LeftArrow && PreviousSlide!=null)
+        {
+            Console.WriteLine("Left Arrow Pressed " + PreviousSlide);
+            NavigateToPrevious();
+        }
+        else if(key == ConsoleKey.RightArrow && NextSlide!=null)
+        {
+            Console.WriteLine("Right Arrow Pressed" + NextSlide);
+            NavigateToNext();
+        }
+    }
+    public void OnKeyUp(object sender, ConsoleKey key)
+    {
+        if(key == ConsoleKey.LeftArrow && PreviousSlide!=null)
+        {
+            Console.WriteLine("Left Arrow Pressed " + PreviousSlide);
+            NavigateToPrevious();
+        }
+        else if(key == ConsoleKey.RightArrow && NextSlide!=null)
+        {
+            Console.WriteLine("Right Arrow Pressed" + NextSlide);
+            NavigateToNext();
+        }
+    }
+}

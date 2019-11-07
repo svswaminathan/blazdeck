@@ -1,0 +1,48 @@
+@page "/learnmore"
+@using System.Collections.Generic
+@inject HttpClient Http
+
+<h1 style="margin-left:35%"> Resources </h1>
+<hr>
+<br>
+<br>
+
+@if (blazorResources == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Resource</th>
+                <th>Link</th>                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var resource in blazorResources)
+            {
+                <tr>
+                    <td>@resource.ResourceName</td>
+                    <td><a href=@resource.Link target="_blank">@resource.Link</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<DeckNavigation PreviousSlide="/serverlesswebsites-2" NextSlide="/thankyou"/>
+
+@code{
+    private List<BlazorResource> blazorResources;
+
+    protected override async Task OnInitializedAsync()
+    {
+        blazorResources = await Http.GetJsonAsync<List<BlazorResource>>("https://dotnetblr-demo-azurefn.azurewebsites.net/api/HttpTriggerBlazorResourcesFn");
+    }
+    public class BlazorResource{
+        public string ResourceName {get;set;}
+        public string Link {get;set;}
+    }
+}
