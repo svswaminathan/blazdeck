@@ -1,0 +1,14 @@
+<h1 style="margin-left:35%" > @Title</h1>
+<hr>
+<br>
+<br>
+
+@ChildContent
+
+@code{
+    [Parameter]
+    public string Title {get;set;}
+
+    [Parameter]
+    public RenderFragment ChildContent {get;set;}
+}
