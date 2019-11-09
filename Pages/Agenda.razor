@@ -7,10 +7,10 @@
 <br>
 <br>
 
-<ul class="list-group">
+<ul class="list-group list-group-flush">
 @foreach(var agendaItem in agendaItems)
 {
-    <li class="list-group-item"> @agendaItem </li>
+    <li class="list-group-item"> <span class="oi oi-check"></span> @agendaItem </li>
 }
 </ul>
 
@@ -19,7 +19,7 @@
 @code {
     private List<string> agendaItems;
 
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
             agendaItems = new List<string>
         {
